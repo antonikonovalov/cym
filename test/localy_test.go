@@ -23,13 +23,14 @@ func getMainPage() *page.Page {
 
 func TestParserMainPage(t *testing.T) {
 	p := getMainPage()
-	pageParser,err := parser.New(p)
+	pageParser,err := parser.New(*p)
 	if err != nil {
 		t.Error(err)
 		t.Fail()
 	}
-
-
-
-
+	err = pageParser.Do()
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+	}
 }

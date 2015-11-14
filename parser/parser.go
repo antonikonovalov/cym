@@ -11,9 +11,9 @@ func New(p page.Page) (Parser,error) {
 	var pageParser Parser
 	switch p.Type {
 	case page.PageTypeCatalogs:
-		pageParser = newPageCatalogsParser(p)
+		pageParser,err = newPageCatalogsParser(p)
 	}
-	return pageParser,nil
+	return pageParser,err
 }
 
 type Parser interface {
